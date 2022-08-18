@@ -13,10 +13,10 @@ jobs:
     merge-branch:
         runs-on: ubuntu-latest
         steps:
-            if: contains(github.event.pull_request.labels.*.name, '<label_name>') || steps.branch-name.outputs.is_default == 'true'
             - uses: actions/checkout@master
 
             - name: Merge main -> PR branch
+              if: contains(github.event.pull_request.labels.*.name, '<label_name>') || steps.branch-name.outputs.is_default == 'true'
               uses: devmasx/merge-branch@master
               with:
                 type: now
