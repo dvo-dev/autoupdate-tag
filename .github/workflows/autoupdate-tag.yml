@@ -9,6 +9,9 @@ on:
         branches:
             - 'main'
 
+env:
+    BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
 jobs:
     merge-branch:
         runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
             - uses: actions/checkout@master
 
             - name: Branch name
-              run: echo branch ${GITHUB_REF##*/}
+              run: echo branch ${BRANCH_NAME}
 
             - name: Merge main -> PR branch
               if: contains(github.event.pull_request.labels.*.name, 'autoupdate') || github.ref == 'refs/head/main'
