@@ -24,6 +24,7 @@ jobs:
             - name: Merge main -> PR branch
               if: contains(github.event.pull_request.labels.*.name, 'autoupdate') || github.ref_name == 'main'
               run: |
+                git checkout ${BRANCH_NAME}
                 git branch
                 git merge origin/main
                 git push origin ${BRANCH_NAME}
