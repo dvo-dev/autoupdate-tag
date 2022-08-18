@@ -11,9 +11,9 @@ on:
 
 jobs:
     merge-branch:
-        if: contains(github.event.pull_request.labels.*.name, '<label_name>') || steps.branch-name.outputs.is_default == 'true'
         runs-on: ubuntu-latest
         steps:
+            if: contains(github.event.pull_request.labels.*.name, '<label_name>') || steps.branch-name.outputs.is_default == 'true'
             - uses: actions/checkout@master
 
             - name: Merge main -> PR branch
