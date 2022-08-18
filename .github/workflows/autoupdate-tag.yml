@@ -19,7 +19,7 @@ jobs:
               run: echo branch ${GITHUB_REF##*/}
 
             - name: Merge main -> PR branch
-              if: contains(github.event.pull_request.labels.*.name, 'autoupdate') || steps.branch-name.outputs.is_default == 'true'
+              if: contains(github.event.pull_request.labels.*.name, 'autoupdate') || github.ref == 'refs/head/main'
               uses: devmasx/merge-branch@master
               with:
                 type: now
