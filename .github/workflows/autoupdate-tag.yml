@@ -23,9 +23,9 @@ jobs:
 
             - name: Merge main -> PR branch
               if: contains(github.event.pull_request.labels.*.name, 'autoupdate') || github.ref_name == 'main'
-                run: |
-                    git pull origin main
-                    git push origin ${BRANCH_NAME}
+              run: |
+                git pull origin main
+                git push origin ${BRANCH_NAME}
             #   uses: devmasx/merge-branch@master
             #   with:
             #     type: now
