@@ -29,8 +29,3 @@ jobs:
                 git branch
                 git pull origin main
                 git push origin ${BRANCH_NAME}
-            #   uses: devmasx/merge-branch@master
-            #   with:
-            #     type: now
-            #     from_branch: main
-            #     target_branch: ${BRANCH_NAME}
