@@ -10,7 +10,7 @@ on:
             - 'main'
 
 jobs:
-    sync-branch:
+    merge-branch:
         if: ${{ github.event.label.name == 'autoupdate'}}
         runs-on: ubuntu-latest
         steps:
