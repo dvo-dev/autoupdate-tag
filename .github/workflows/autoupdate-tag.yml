@@ -34,4 +34,4 @@ jobs:
                 git fetch
                 git checkout origin/${BRANCH_NAME}
                 git pull origin main
-                git push origin ${BRANCH_NAME}
+                git push origin/${BRANCH_NAME}
