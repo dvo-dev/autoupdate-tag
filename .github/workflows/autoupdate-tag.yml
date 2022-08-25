@@ -18,6 +18,9 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
+            - name: Get remote branches
+              run: git branch -r
+
             - name: Branch name
               run: echo branch ${BRANCH_NAME}
 
@@ -26,7 +29,6 @@ jobs:
               run: |
                 git config user.name github-actions
                 git config user.email github-actions@github.com
-                git branch -r
                 git checkout origin/${BRANCH_NAME}
                 git pull origin main
                 git push origin ${BRANCH_NAME}
